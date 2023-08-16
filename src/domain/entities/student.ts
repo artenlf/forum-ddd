@@ -5,7 +5,7 @@ export class Student {
   public name: string
 
   constructor(title: string, id?: string) {
-    this.id = id ?? randomUUID()
     this.name = title
+    this.id = id ?? randomUUID()
   }
 }
