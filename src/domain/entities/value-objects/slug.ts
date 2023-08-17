@@ -6,7 +6,7 @@ export class Slug {
   }
 
   /**
-   * This value-object receives an String and format it as a slug 
+   * This value-object receives a String and format it as a slug 
    * through Normalize method.
    * 
    * The normalize() method of String values 
