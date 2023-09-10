@@ -1,5 +1,8 @@
+import { Either, left, right } from '@/core/either'
 import { AnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
+import { PermissionDeniedError } from './errors/permission-denied-error'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface EditAnswerUseCaseRequest {
   authorId: string
@@ -7,10 +10,12 @@ interface EditAnswerUseCaseRequest {
   content: string
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface EditAnswerUseCaseResponse {
-  answer: Answer
-}
+type EditAnswerUseCaseResponse = Either<
+  ResourceNotFoundError | PermissionDeniedError,
+  {
+    answer: Answer
+  }
+>
 
 export class EditAnswerUseCase {
   constructor(private answersRepository: AnswersRepository) {}
@@ -23,19 +28,19 @@ export class EditAnswerUseCase {
     const answer = await this.answersRepository.findById(answerId)
 
     if (!answer) {
-      throw new Error('Answer not found')
+      return left(new ResourceNotFoundError())
     }
 
     if (authorId !== answer.authorId.toString()) {
-      throw new Error('Permission denied')
+      return left(new PermissionDeniedError())
     }
 
     answer.content = content
 
     await this.answersRepository.update(answer)
 
-    return {
+    return right({
       answer,
-    }
+    })
   }
 }
