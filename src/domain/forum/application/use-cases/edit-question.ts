@@ -4,7 +4,7 @@ import { QuestionsRepository } from '@/domain/forum/application/repositories/que
 import { Question } from '@/domain/forum/enterprise/entities/question'
 import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
 import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/question-attachment-list'
-import { QuestionAttachmentsRepository } from '../repositories/questions-attachments-repository'
+import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 import { PermissionDeniedError } from './errors/permission-denied-error'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
