@@ -1,8 +1,8 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { PermissionDeniedError } from '@/core/errors/errors/permission-denied-error'
 import { makeQuestionComment } from 'tests/factories/make-question-comment'
 import { InMemoryQuestionCommentsRepository } from 'tests/repositories/in-memory-question-comments-repository'
 import { DeleteQuestionCommentUseCase } from './delete-question-comment'
-import { PermissionDeniedError } from './errors/permission-denied-error'
 
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: DeleteQuestionCommentUseCase

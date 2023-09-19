@@ -1,7 +1,7 @@
 import { Either, left, right } from '@/core/either'
+import { PermissionDeniedError } from '@/core/errors/errors/permission-denied-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { QuestionsRepository } from '../repositories/questions-repository'
-import { PermissionDeniedError } from './errors/permission-denied-error'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface DeleteQuestionUseCaseRequest {
   authorId: string

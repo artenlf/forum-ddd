@@ -1,10 +1,10 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { PermissionDeniedError } from '@/core/errors/errors/permission-denied-error'
 import { makeQuestion } from 'tests/factories/make-question'
 import { makeQuestionAttachment } from 'tests/factories/make-question-attachment'
 import { InMemoryQuestionAttachmentsRepository } from 'tests/repositories/in-memory-question-attachments-repository'
 import { InMemoryQuestionsRepository } from 'tests/repositories/in-memory-questions-repository'
 import { DeleteQuestionUseCase } from './delete-question'
-import { PermissionDeniedError } from './errors/permission-denied-error'
 
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository

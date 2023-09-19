@@ -1,12 +1,12 @@
 import { Either, left, right } from '@/core/either'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { PermissionDeniedError } from '@/core/errors/errors/permission-denied-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { AnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-attachment'
 import { AnswerAttachmentList } from '@/domain/forum/enterprise/entities/answer-attachment-list'
 import { AnswerAttachmentsRepository } from '../repositories/answer-attachments-repository'
-import { PermissionDeniedError } from './errors/permission-denied-error'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface EditAnswerUseCaseRequest {
   authorId: string

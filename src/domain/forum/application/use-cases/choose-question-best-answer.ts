@@ -1,9 +1,9 @@
 import { Either, left, right } from '@/core/either'
+import { PermissionDeniedError } from '@/core/errors/errors/permission-denied-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { Question } from '@/domain/forum/enterprise/entities/question'
 import { AnswersRepository } from '../repositories/answers-repository'
 import { QuestionsRepository } from '../repositories/questions-repository'
-import { PermissionDeniedError } from './errors/permission-denied-error'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
   authorId: string
